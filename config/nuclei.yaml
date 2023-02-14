@@ -1,0 +1,14 @@
+ScannerName: nuclei
+Description: |
+  Nuclei使用零误报的定制模板向目标发送请求，同时可以对主机进行批量快速扫描。
+Type: Comprehensive
+ToolDirectoryName: nuclei
+SupportedPlatform:
+  windows:
+    StartCmd: |
+      nuclei.exe -rl 300 -bs 35 -c 30 -mhe 10 -ni -json -o nuclei_#{random}.json -u #{target}  -stats -silent -severity critical,medium,high
+  linux:
+    StartCmd: |
+      nuclei -rl 300 -bs 35 -c 30 -mhe 10 -ni -json -o nuclei_#{random}.json -u #{target}  -stats -silent -severity critical,medium,high
+TimeOut: 300
+ScannerTemplateAuthor: 爱吃火锅的提莫

@@ -1,0 +1,14 @@
+ScannerName: bbscan
+Description: |
+  BBScan 是一个高并发、轻量级的信息泄露扫描工具。它可以在短时间内完成数十万目标的扫描，帮助渗透工程师从大量无标签的主机中，定位到可能存在弱点的目标，进行下一步半自动化测试，或者是开启重量级扫描器。
+Type: InformationLeakage
+ToolDirectoryName: BBScan
+SupportedPlatform:
+  windows:
+    StartCmd: |
+      python BBScan.py --host #{target} | tee  bbscan_#{random}.txt
+  linux:
+    StartCmd: |
+      python3 BBScan.py --host #{target} | tee -a bbscan_#{random}.txt
+TimeOut: 300
+ScannerTemplateAuthor: 爱吃火锅的提莫

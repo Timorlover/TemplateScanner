@@ -1,0 +1,6 @@
+load_template:
+- bbscan
+- nuclei
+- xray
+timeout: 300
+thread: 3

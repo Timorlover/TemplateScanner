@@ -1,0 +1,14 @@
+ScannerName: xray
+Description: |
+  xray (https://github.com/chaitin/xray) 是从长亭洞鉴核心引擎中提取出的社区版漏洞扫描神器，支持主动、被动多种扫描方式，自备盲打平台、可以灵活定义 POC，功能丰富，调用简单，支持 Windows / macOS / Linux 多种操作系统，可以满足广大安全从业者的自动化 Web 漏洞探测需求。
+Type: Comprehensive
+ToolDirectoryName: xray
+SupportedPlatform:
+  windows:
+    StartCmd: |
+      .\xray_windows_amd64.exe webscan --json-output xray_#{random}.json  --webhook-output http://104.243.19.8:5000/webhook --url #{target}
+  linux:
+    StartCmd: |
+      ./xray webscan --json-output xray_#{random}.json  --webhook-output http://104.243.19.8:5000/webhook --url #{target}
+TimeOut: 300
+ScannerTemplateAuthor: 爱吃火锅的提莫
